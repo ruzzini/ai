@@ -1,318 +1,105 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" style="height: 100%;">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>할머니의 레시피, 우리 가족의 이야기 | 3대가 함께하는 세대공감 요리 교실</title>
-<style>
-:root{--bg:#FFF8F5;--g1:#FFE1D6;--g2:#FFC2B3;--acc:#FF6B4A;--acc2:#E5512F;--sub:#FFB199;--txt:#2A1712;--muted:rgba(42,23,18,.68);--sacc:#B93A1B;--r:28px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{font-family:system-ui,"Malgun Gothic",sans-serif;color:var(--txt);line-height:1.7;
- background:radial-gradient(45% 35% at 12% 8%,var(--g1),transparent 70%),radial-gradient(40% 35% at 95% 30%,var(--g2),transparent 70%),radial-gradient(50% 30% at 20% 75%,var(--g1),transparent 70%),radial-gradient(40% 30% at 90% 95%,var(--g2),transparent 70%),var(--bg);background-attachment:fixed}
-a{color:inherit}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-.glass{background:linear-gradient(rgba(255,255,255,.68),rgba(255,255,255,.58));border:1px solid rgba(255,255,255,.75);border-radius:var(--r);position:relative;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 40px rgba(255,107,74,.12);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%)}
-.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(160deg,rgba(255,255,255,.95),rgba(255,255,255,0) 60%);
- -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass,.nav{background:rgba(255,255,255,.94)!important}}
-.chk{display:inline-block;background:rgba(255,107,74,.14);color:var(--sacc);font-weight:800;border-radius:99px;padding:0 10px;font-size:.88em;white-space:nowrap}
-.asm{color:var(--muted);font-size:.85em}
-/* nav */
-.nav{position:sticky;top:12px;z-index:50;margin:12px auto 0;max-width:1100px;width:calc(100% - 24px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 22px;border-radius:99px;
- background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 30px rgba(255,107,74,.12);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%)}
-.brand{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:-.02em;text-decoration:none}
-.brand svg{width:22px;height:22px;stroke:var(--acc)}
-.nav ul{display:flex;gap:4px;list-style:none}
-.nav ul a{display:block;padding:8px 14px;border-radius:99px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted)}
-.nav ul a:hover{background:rgba(255,107,74,.1);color:var(--sacc)}
-.nav ul a.cta-link{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
-:focus-visible{outline:3px solid var(--sacc);outline-offset:3px;border-radius:12px}
-/* hero */
-.hero{text-align:center;padding:64px 0 40px}
-.tag{display:inline-block;padding:6px 16px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.85);color:var(--sacc);font-weight:800;font-size:.9rem}
-.hero h1{margin-top:18px;font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.18;letter-spacing:-.045em;font-weight:900}
-.hero h1 em{font-style:normal;color:var(--acc)}
-.hero p.lead{margin:16px auto 0;max-width:640px;font-size:1.1rem;color:var(--muted)}
-.hero-illu{display:block;width:min(680px,100%);margin:20px auto 0}
-.hero-info{margin:-6px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px}
-.hi{display:flex;gap:12px;align-items:center;text-align:left;padding:8px 10px}
-.hi svg{flex:none;width:30px;height:30px;stroke:var(--sacc)}
-.hi small{display:block;color:var(--sacc);font-weight:800;font-size:.8rem}
-.hi b{font-size:1rem;letter-spacing:-.02em}
-.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;padding:15px 30px;border-radius:99px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font:inherit;font-weight:800;font-size:1.08rem;text-decoration:none;box-shadow:0 12px 26px rgba(229,81,47,.3)}
-.btn:hover{transform:translateY(-1px)}
-.hero .actions{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.hero .actions small{color:var(--muted)}
-/* sections */
-section.sec{padding:72px 0}
-.eyebrow{color:var(--sacc);font-weight:800;font-size:.85rem;letter-spacing:.08em}
-h2{font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.04em;line-height:1.3;margin:6px 0 10px}
-h2 em{font-style:normal;color:var(--acc)}
-.sec-lead{color:var(--muted);max-width:640px}
-.grid3{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grid2{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{padding:28px}
-.ic{width:56px;height:56px;border-radius:18px;background:var(--g1);display:grid;place-items:center;margin-bottom:14px}
-.ic svg{width:30px;height:30px;stroke:var(--sacc)}
-.card h3{font-size:1.2rem;letter-spacing:-.03em;margin-bottom:6px}
-.card p{color:var(--muted)}
-.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:99px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;margin-right:10px}
-.prog{display:flex;gap:16px;align-items:flex-start}
-.prog .ic{margin:0;flex:none}
-/* timeline */
-.tl{margin-top:30px;padding:30px 28px}
-.tl ol{list-style:none;position:relative;display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
-.tl ol::before{content:"";position:absolute;left:6%;right:6%;top:17px;height:5px;border-radius:5px;background:var(--sub)}
-.tl li{position:relative;text-align:center;padding-top:44px}
-.tl li::before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);width:24px;height:24px;border-radius:99px;background:#fff;border:4px solid var(--acc)}
-.tl li.hl::before{background:var(--acc);box-shadow:0 0 0 6px rgba(255,107,74,.2)}
-.tl time{display:block;font-weight:800;color:var(--sacc)}
-.tl span{display:block;font-size:.92rem;line-height:1.45}
-.tl li.hl span{font-weight:800}
-/* info */
-.info-list{margin-top:30px;padding:10px 28px}
-.info-list dl{display:grid;grid-template-columns:160px 1fr}
-.info-list dt,.info-list dd{padding:14px 0;border-bottom:1px solid rgba(185,58,27,.12)}
-.info-list dt{font-weight:800;color:var(--sacc)}
-.info-list dl>*:nth-last-child(-n+2){border-bottom:0}
-/* faq */
-.faq{margin-top:30px;display:grid;gap:12px}
-.faq .item{padding:4px 8px}
-.faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:0;font:inherit;font-weight:800;font-size:1.05rem;color:var(--txt);text-align:left;padding:16px 16px;cursor:pointer;border-radius:20px}
-.faq button svg{flex:none;width:22px;height:22px;stroke:var(--sacc);transition:transform .25s}
-.faq button[aria-expanded="true"] svg{transform:rotate(45deg)}
-.faq .ans{padding:0 16px 16px;color:var(--muted)}
-/* form */
-.form{margin-top:30px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field.full{grid-column:1/-1}
-label,.legend{font-weight:700;font-size:.95rem}
-label .req{color:var(--sacc);margin-left:4px}
-input[type=text],input[type=tel],input[type=number],textarea{font:inherit;padding:12px 16px;border-radius:16px;border:1px solid rgba(185,58,27,.25);background:rgba(255,255,255,.85);color:var(--txt)}
-input:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:1px}
-fieldset{border:0;grid-column:1/-1}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
-.check{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start}
-.check input{width:20px;height:20px;margin-top:4px;accent-color:var(--acc)}
-.form .submit{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.done{grid-column:1/-1;display:none;padding:18px 22px;border-radius:20px;background:rgba(255,107,74,.12);color:var(--sacc);font-weight:800}
-.done.show{display:block}
-.err{color:var(--sacc);font-size:.85rem;min-height:1em}
-footer{padding:40px 0 60px}
-footer .glass{padding:26px 30px;display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;color:var(--muted)}
-footer b{color:var(--sacc)}
-/* reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn:hover{transform:none}*{animation:none!important;transition:none!important}}
-@media (max-width:768px){
- .nav ul li:not(:last-child){display:none}
- .hero-info,.grid3,.grid2,.form{grid-template-columns:1fr}
- .tl ol{grid-template-columns:1fr;gap:0}
- .tl ol::before{left:19px;right:auto;top:10px;bottom:10px;width:5px;height:auto}
- .tl li{text-align:left;padding:8px 0 12px 52px}
- .tl li::before{left:21px;top:12px}
- .info-list dl{grid-template-columns:1fr}.info-list dt{border-bottom:0;padding-bottom:0}
- .trio{grid-template-columns:1fr}
-}
-@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.nav{position:static}.glass,.nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff;box-shadow:none;border:1px solid #FFC2B3}.glass::before{display:none}.reveal{opacity:1;transform:none}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 학습 지원 센터</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100%;
+            font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        /* 헤더 영역 (교육기관 스타일) */
+        header {
+            background-color: #003366; /* 신뢰감을 주는 네이비 칼라 */
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        header .badge {
+            background-color: #107c41;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        /* 웹챗 메인 컨테이너 */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .chat-card {
+            width: 100%;
+            max-width: 900px;
+            height: 100%;
+            max-height: 800px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #e1e4e8;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-card-header {
+            background-color: #f8f9fa;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eaeaea;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <defs>
-  <symbol id="i-pot" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><path d="M2 12h2M20 12h2M3.5 11h17"/><path d="M9 4c-1 1 1 2 0 3.5M14 4c-1 1 1 2 0 3.5"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 6.5 4.5 3 5v13c3.5-.5 7 0 9 1.5 2-1.5 5.5-2 9-1.5V5c-3.5-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></symbol>
-  <symbol id="i-family" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="11.5" r="1.8"/><path d="M2.5 18a3.5 3.5 0 0 1 7 0M14.5 18a3.5 3.5 0 0 1 7 0M9.5 20a2.5 2.5 0 0 1 5 0"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1" fill="currentColor"/></symbol>
-  <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><rect x="5.5" y="9.5" width="13" height="10.5" rx="2.5"/><path d="M12 17.5s-2.4-1.4-2.4-3a1.3 1.3 0 0 1 2.4-.7 1.3 1.3 0 0 1 2.4.7c0 1.6-2.4 3-2.4 3z"/></symbol>
-  <symbol id="i-spoon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7.5" cy="6.5" rx="2.5" ry="3.5"/><path d="M7.5 10v11M16.5 3v18M14 3v5a2.5 2.5 0 0 0 5 0V3"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
- </defs>
-</svg>
 
-<nav class="nav" aria-label="주요 메뉴">
- <a class="brand" href="#top"><svg><use href="#i-heart"/></svg>세대공감 요리 교실</a>
- <ul>
-  <li><a href="#about">소개</a></li>
-  <li><a href="#program">프로그램</a></li>
-  <li><a href="#info">참가 안내</a></li>
-  <li><a href="#faq">FAQ</a></li>
-  <li><a class="cta-link" href="#apply">신청하기</a></li>
- </ul>
-</nav>
+    <!-- 교육기관 헤더 -->
+    <header>
+        <h1>
+            <span>🎓 AI 학습지원·상담 센터</span>
+        </h1>
+        <span class="badge">온라인 24시간</span>
+    </header>
 
-<main id="top">
- <header class="hero wrap">
-  <span class="tag">3대가 함께하는 세대공감 요리 교실</span>
-  <h1>할머니의 레시피,<br>우리 가족의 <em>이야기</em>가 됩니다</h1>
-  <p class="lead">할머니·할아버지, 엄마·아빠, 그리고 아이까지. 3대가 한 식탁에 둘러앉아 오래 간직해 온 레시피를 함께 만들어 봐요.</p>
-  <svg class="hero-illu" viewBox="0 0 900 470" role="img" aria-label="펼친 그림책 위에 둥근 집과 김이 오르는 냄비, 세 개의 하트">
-   <ellipse cx="450" cy="440" rx="380" ry="22" fill="#FFC2B3" opacity=".5"/>
-   <path d="M80 400 Q260 330 450 380 L450 450 Q260 400 80 450Z" fill="#FFB199"/>
-   <path d="M820 400 Q640 330 450 380 L450 450 Q640 400 820 450Z" fill="#FFB199"/>
-   <path d="M90 385 Q260 300 450 360 L450 430 Q260 380 90 430Z" fill="#fff"/>
-   <path d="M810 385 Q640 300 450 360 L450 430 Q640 380 810 430Z" fill="#fff"/>
-   <path d="M450 360v72" stroke="#FFB199" stroke-width="4"/>
-   <g stroke="#FFC2B3" stroke-width="5" stroke-linecap="round" fill="none"><path d="M140 392 Q270 345 410 380"/><path d="M140 410 Q270 365 410 398"/><path d="M490 380 Q630 345 760 392"/><path d="M490 398 Q630 365 760 410"/></g>
-   <path d="M155 222 L265 140 L375 222Z" fill="#FF6B4A"/>
-   <rect x="175" y="210" width="180" height="150" rx="28" fill="#FFE1D6" stroke="#FF6B4A" stroke-width="5"/>
-   <rect x="240" y="280" width="50" height="80" rx="22" fill="#fff" stroke="#FF6B4A" stroke-width="4"/>
-   <path d="M254 186c0-6 7-9 11-4 4-5 11-2 11 4 0 8-11 13-11 13s-11-5-11-13z" fill="#fff"/>
-   <g fill="none" stroke="#FFB199" stroke-width="6" stroke-linecap="round"><path d="M580 250 q-14 -18 0 -36 q14 -18 0 -36"/><path d="M630 250 q-14 -18 0 -36 q14 -18 0 -36"/><path d="M680 250 q-14 -18 0 -36 q14 -18 0 -36"/></g>
-   <rect x="490" y="275" width="40" height="20" rx="10" fill="#B93A1B"/><rect x="730" y="275" width="40" height="20" rx="10" fill="#B93A1B"/>
-   <rect x="530" y="268" width="200" height="104" rx="34" fill="#FF6B4A"/>
-   <rect x="515" y="256" width="230" height="22" rx="11" fill="#B93A1B"/>
-   <path d="M430 80c0-20 24-28 36-12 12-16 36-8 36 12 0 26-36 44-36 44s-36-18-36-44z" fill="#FF6B4A"/>
-   <path d="M560 50c0-14 17-20 25-8 8-12 25-6 25 8 0 18-25 31-25 31s-25-13-25-31z" fill="#FFB199"/>
-   <path d="M345 70c0-10 12-14 18-6 6-8 18-4 18 6 0 13-18 22-18 22s-18-9-18-22z" fill="#FFC2B3"/>
-  </svg>
-  <div class="hero-info glass">
-   <div class="hi"><svg><use href="#i-cal"/></svg><div><small>일시</small><b>2026년 12월 12일(토) 10:00~13:00</b></div></div>
-   <div class="hi"><svg><use href="#i-house"/></svg><div><small>장소</small><b>구립 가족센터 조리실</b></div></div>
-   <div class="hi"><svg><use href="#i-family"/></svg><div><small>대상</small><b>3대 가족 30팀 선착순</b></div></div>
-  </div>
-  <div class="actions">
-   <a class="btn" href="#apply">우리 가족 신청하기</a>
-   <small>가족 단위 1팀 1신청 · 참가비 무료 <span class="asm">[가정]</span></small>
-  </div>
- </header>
+    <!-- 챗봇 컨테이너 -->
+    <main>
+        <div class="chat-card">
+            <div class="chat-card-header">
+                💡 교육 과정, 수강신청, 학사 일정 등에 대해 물어보세요.
+            </div>
+            <iframe 
+                src="https://copilotstudio.microsoft.com/environments/Default-9ef36566-f756-4f11-9c5f-307c10f409f9/bots/cre46_aicreative_YaQn4G/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" 
+                title="AI 학습 지원 챗봇">
+            </iframe>
+        </div>
+    </main>
 
- <section id="about" class="sec wrap reveal">
-  <p class="eyebrow">ABOUT</p>
-  <h2>한 식탁에서 펼치는 <em>우리 가족</em> 그림책</h2>
-  <p class="sec-lead">음식 한 그릇에 담긴 이야기를 3대가 함께 꺼내 보는 시간이에요.</p>
-  <div class="grid3">
-   <article class="card glass"><div class="ic"><svg><use href="#i-pot"/></svg></div><h3>한 식탁에서 보내는 3시간</h3><p>조부모는 가르치고, 부모는 요리하고, 아이는 꾸미며 3대가 한 팀이 되어 요리를 완성해요.</p></article>
-   <article class="card glass"><div class="ic"><svg><use href="#i-heart"/></svg></div><h3>손맛에 담긴 이야기를 아이에게</h3><p>음식에 얽힌 할머니·할아버지의 추억이 아이에게 다정한 옛이야기처럼 전해져요.</p></article>
-   <article class="card glass"><div class="ic"><svg><use href="#i-book"/></svg></div><h3>우리 가족만의 레시피 그림책</h3><p>오늘 함께 만든 레시피와 이야기를 한 권의 그림책으로 엮어 선물로 드려요.</p></article>
-  </div>
- </section>
-
- <section id="program" class="sec wrap reveal">
-  <p class="eyebrow">PROGRAM</p>
-  <h2>이야기 → 요리 → 기록 → 나눔 <span class="asm">[가정]</span></h2>
-  <p class="sec-lead">4가지 프로그램으로 하루를 채워요. 정확한 순서는 아래 당일 일정을 확인해 주세요.</p>
-  <div class="grid2">
-   <article class="card glass prog"><div class="ic"><svg><use href="#i-heart"/></svg></div><div><h3><span class="num">1</span>우리 집 레시피 이야기</h3><p>조부모가 들려주는 음식 속 추억을 함께 나눠요.</p></div></article>
-   <article class="card glass prog"><div class="ic"><svg><use href="#i-pot"/></svg></div><div><h3><span class="num">2</span>3대 협동 요리</h3><p>할머니 레시피 1가지를 세대별로 나눠 만들어요. 조부모는 지도하고, 부모는 조리하고, 아이는 꾸며요.</p></div></article>
-   <article class="card glass prog"><div class="ic"><svg><use href="#i-book"/></svg></div><div><h3><span class="num">3</span>가족 레시피 그림책 만들기</h3><p>오늘의 레시피와 이야기를 그림과 글로 담아요.</p></div></article>
-   <article class="card glass prog"><div class="ic"><svg><use href="#i-spoon"/></svg></div><div><h3><span class="num">4</span>세대공감 한 상 나눔</h3><p>함께 만든 음식을 맛보고 가족 사진도 찍어요.</p></div></article>
-  </div>
-  <div class="tl glass" aria-label="당일 일정">
-   <p class="eyebrow" style="margin-bottom:14px">당일 일정 <span class="asm">[가정]</span></p>
-   <ol>
-    <li><time>09:30</time><span>접수</span></li>
-    <li><time>10:00</time><span>여는 인사·가족 소개</span></li>
-    <li><time>10:20</time><span>레시피 이야기</span></li>
-    <li class="hl"><time>10:50</time><span>3대 협동 요리</span></li>
-    <li><time>12:00</time><span>한 상 나눔·가족 사진</span></li>
-    <li><time>12:30</time><span>레시피 그림책 만들기</span></li>
-    <li><time>12:50</time><span>소감 나눔·마무리</span></li>
-    <li><time>13:00</time><span>종료</span></li>
-   </ol>
-  </div>
- </section>
-
- <section id="info" class="sec wrap reveal">
-  <p class="eyebrow">INFORMATION</p>
-  <h2>참가 안내</h2>
-  <div class="info-list glass">
-   <dl>
-    <dt>일시</dt><dd>2026년 12월 12일(토) 10:00~13:00 (접수 09:30 <span class="asm">[가정]</span>)</dd>
-    <dt>장소</dt><dd>구립 가족센터 조리실 (상세 주소 <span class="chk">[확인 필요]</span>)</dd>
-    <dt>대상</dt><dd>조부모·부모·아이 3대 가족 30팀(약 90명)</dd>
-    <dt>모집 방식</dt><dd>선착순, 가족 단위 1팀 1신청</dd>
-    <dt>신청 기간</dt><dd><span class="chk">[확인 필요]</span></dd>
-    <dt>참가비</dt><dd>무료 <span class="asm">[가정]</span></dd>
-    <dt>기념품</dt><dd>1인 1앞치마, 가족 레시피 그림책(행사 후 완성본 발송) <span class="asm">[가정]</span></dd>
-    <dt>안전과 운영</dt><dd>요리 강사 1명, 보조 강사 2명, 자원봉사자 8명이 함께하며 행사 상해보험에 가입되어 있어요. <span class="asm">[가정]</span></dd>
-   </dl>
-  </div>
- </section>
-
- <section id="faq" class="sec wrap reveal">
-  <p class="eyebrow">FAQ</p>
-  <h2>자주 묻는 질문</h2>
-  <div class="faq">
-   <div class="item glass"><button type="button" aria-expanded="false" aria-controls="a1" id="q1">3대가 모두 함께 와야 하나요?<svg><use href="#i-plus"/></svg></button><div class="ans" id="a1" role="region" aria-labelledby="q1" hidden>조부모·부모·아이 3대가 함께하는 프로그램이에요. 3대 중 일부만 참여할 수 있는지는 <span class="chk">[확인 필요]</span>입니다.</div></div>
-   <div class="item glass"><button type="button" aria-expanded="false" aria-controls="a2" id="q2">한 가족은 몇 명까지 참가할 수 있나요?<svg><use href="#i-plus"/></svg></button><div class="ans" id="a2" role="region" aria-labelledby="q2" hidden>30팀, 약 90명 규모로 운영돼요. 팀당 최대 인원은 <span class="chk">[확인 필요]</span>입니다.</div></div>
-   <div class="item glass"><button type="button" aria-expanded="false" aria-controls="a3" id="q3">요리를 잘 못해도 괜찮을까요?<svg><use href="#i-plus"/></svg></button><div class="ans" id="a3" role="region" aria-labelledby="q3" hidden>그럼요. 요리 강사와 보조 강사, 자원봉사자가 곁에서 도와드려요 <span class="asm">[가정]</span>. 아이는 꾸미기를 맡아 즐겁게 참여할 수 있어요.</div></div>
-   <div class="item glass"><button type="button" aria-expanded="false" aria-controls="a4" id="q4">어떤 요리를 만드나요?<svg><use href="#i-plus"/></svg></button><div class="ans" id="a4" role="region" aria-labelledby="q4" hidden>할머니 레시피 1가지를 3대가 역할을 나눠 함께 만들어요 <span class="asm">[가정]</span>. 구체적인 메뉴는 <span class="chk">[확인 필요]</span>입니다.</div></div>
-   <div class="item glass"><button type="button" aria-expanded="false" aria-controls="a5" id="q5">레시피 그림책은 언제 받을 수 있나요?<svg><use href="#i-plus"/></svg></button><div class="ans" id="a5" role="region" aria-labelledby="q5" hidden>당일 함께 만든 그림책을 정리해 행사 후 완성본으로 보내드려요 <span class="asm">[가정]</span>. 발송 시기와 방법은 <span class="chk">[확인 필요]</span>입니다.</div></div>
-  </div>
- </section>
-
- <section id="apply" class="sec wrap reveal">
-  <p class="eyebrow">APPLY</p>
-  <h2>우리 가족 <em>신청하기</em></h2>
-  <p class="sec-lead">우리 가족 이야기를 들려줄 준비가 되셨나요? 가족 대표 한 분이 한 번만 신청해 주세요. 30팀 선착순으로 마감돼요.</p>
-  <form class="form glass" id="applyForm" novalidate>
-   <div class="field"><label for="name">대표 신청자 이름<span class="req" aria-hidden="true">*</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
-   <div class="field"><label for="phone">연락처(휴대전화)<span class="req" aria-hidden="true">*</span></label><input type="tel" id="phone" name="phone" required placeholder="010-0000-0000" autocomplete="tel"></div>
-   <fieldset>
-    <legend class="legend">참가 인원<span class="req" aria-hidden="true" style="color:var(--sacc)">*</span></legend>
-    <div class="trio">
-     <div class="field"><label for="gp">조부모(명)</label><input type="number" id="gp" name="gp" min="1" max="4" required></div>
-     <div class="field"><label for="pa">부모(명)</label><input type="number" id="pa" name="pa" min="1" max="4" required></div>
-     <div class="field"><label for="ch">아이(명)</label><input type="number" id="ch" name="ch" min="1" max="6" required></div>
-    </div>
-   </fieldset>
-   <div class="field"><label for="age">아이 나이<span class="req" aria-hidden="true">*</span></label><input type="text" id="age" name="age" required placeholder="여러 명이면 쉼표로 구분 (예: 7, 10)"></div>
-   <div class="field"><label for="allergy">식품 알레르기<span class="req" aria-hidden="true">*</span></label><input type="text" id="allergy" name="allergy" required placeholder="없으면 '없음'"></div>
-   <div class="check"><input type="checkbox" id="agree" name="agree" required><label for="agree">개인정보 수집·이용에 동의합니다. (수집 항목: 이름, 연락처, 참가 인원, 아이 나이, 알레르기 / 이용 목적: 참가 확정 안내 및 안전 관리)</label></div>
-   <p class="err" id="err" role="alert" aria-live="polite"></p>
-   <div class="submit"><button class="btn" type="submit">우리 가족 신청 완료하기</button><small class="asm">이 페이지의 신청 폼은 데모예요. 입력값은 어디에도 전송·저장되지 않아요. 실제 신청 링크 <span class="chk">[확인 필요]</span></small></div>
-   <div class="done" id="done" role="status" aria-live="polite">신청이 접수되었습니다(데모)</div>
-  </form>
- </section>
-</main>
-
-<footer class="wrap">
- <div class="glass">
-  <span><b>주최</b> <span class="chk">[확인 필요]</span></span>
-  <span><b>장소</b> 구립 가족센터 조리실 (상세 주소 <span class="chk">[확인 필요]</span>)</span>
-  <span><b>문의</b> <span class="chk">[확인 필요]</span></span>
- </div>
-</footer>
-
-<script>
-(function(){
- // FAQ toggle
- document.querySelectorAll('.faq button').forEach(function(b){
-  b.addEventListener('click',function(){
-   var open=b.getAttribute('aria-expanded')==='true';
-   b.setAttribute('aria-expanded',String(!open));
-   document.getElementById(b.getAttribute('aria-controls')).hidden=open;
-  });
- });
- // reveal on scroll
- var els=document.querySelectorAll('.reveal');
- var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on')});}
- else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}})},{threshold:.12});els.forEach(function(e){io.observe(e)});}
- // smooth scroll respecting reduced motion
- document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(ev){
-   var t=document.querySelector(a.getAttribute('href')); if(!t)return;
-   ev.preventDefault(); t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
-   if(t.classList.contains('reveal'))t.classList.add('on');
-  });
- });
- // demo form: no data is sent or stored
- var f=document.getElementById('applyForm'),err=document.getElementById('err'),done=document.getElementById('done');
- f.addEventListener('submit',function(ev){
-  ev.preventDefault();
-  if(!f.checkValidity()){
-   var bad=f.querySelector(':invalid'); err.textContent='필수 항목을 모두 입력하고 개인정보 수집·이용에 동의해 주세요.'; if(bad)bad.focus(); return;
-  }
-  err.textContent=''; done.classList.add('show'); f.reset(); done.setAttribute('tabindex','-1'); done.focus();
- });
-})();
-</script>
 </body>
 </html>
