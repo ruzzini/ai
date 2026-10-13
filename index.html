@@ -1,1 +1,105 @@
-<!DOCTYPE html><html style="height: 100%;"><body style="height: 100%; margin: 0;"><iframe src="https://copilotstudio.microsoft.com/environments/Default-9ef36566-f756-4f11-9c5f-307c10f409f9/bots/cre46_aicreative_YaQn4G/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 100%; border: 0;"></iframe></body></html>
+<!DOCTYPE html>
+<html lang="ko" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 학습 지원 센터</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100%;
+            font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        /* 헤더 영역 (교육기관 스타일) */
+        header {
+            background-color: #003366; /* 신뢰감을 주는 네이비 칼라 */
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        header .badge {
+            background-color: #107c41;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        /* 웹챗 메인 컨테이너 */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .chat-card {
+            width: 100%;
+            max-width: 900px;
+            height: 100%;
+            max-height: 800px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 1px solid #e1e4e8;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-card-header {
+            background-color: #f8f9fa;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eaeaea;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 교육기관 헤더 -->
+    <header>
+        <h1>
+            <span>🎓 AI 학습지원·상담 센터</span>
+        </h1>
+        <span class="badge">온라인 24시간</span>
+    </header>
+
+    <!-- 챗봇 컨테이너 -->
+    <main>
+        <div class="chat-card">
+            <div class="chat-card-header">
+                💡 교육 과정, 수강신청, 학사 일정 등에 대해 물어보세요.
+            </div>
+            <iframe 
+                src="https://copilotstudio.microsoft.com/environments/Default-9ef36566-f756-4f11-9c5f-307c10f409f9/bots/cre46_aicreative_YaQn4G/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" 
+                title="AI 학습 지원 챗봇">
+            </iframe>
+        </div>
+    </main>
+
+</body>
+</html>
